@@ -44,57 +44,49 @@ public class MultithreadTest
             }
             NucleusLogger.GENERAL.debug(">> Persisted data");
 
-            try
+            // Create the Threads
+            int THREAD_SIZE = 500;
+            final String[] threadErrors = new String[THREAD_SIZE];
+            Thread[] threads = new Thread[THREAD_SIZE];
+            for (int i = 0; i < THREAD_SIZE; i++)
             {
-                int THREAD_SIZE = 500;
-                final String[] threadErrors = new String[THREAD_SIZE];
-                Thread[] threads = new Thread[THREAD_SIZE];
-                for (int i = 0; i < THREAD_SIZE; i++)
+                final int threadNo = i;
+                threads[i] = new Thread(new Runnable()
                 {
-                    final int threadNo = i;
-                    threads[i] = new Thread(new Runnable()
+                    public void run()
                     {
-                        public void run()
-                        {
-                            String errorMsg = performTest(emf);
-                            threadErrors[threadNo] = errorMsg;
-                        }
-                    });
-                }
-
-                // Start the threads
-                NucleusLogger.GENERAL.debug(">> Starting threads");
-                for (int i = 0; i < THREAD_SIZE; i++)
-                {
-                    threads[i].start();
-                }
-
-                // Wait for the end of the threads
-                for (int i = 0; i < THREAD_SIZE; i++)
-                {
-                    try
-                    {
-                        threads[i].join();
+                        String errorMsg = performTest(emf);
+                        threadErrors[threadNo] = errorMsg;
                     }
-                    catch (InterruptedException e)
-                    {
-                        fail(e.getMessage());
-                    }
-                }
-                NucleusLogger.GENERAL.debug(">> Completed threads");
+                });
+            }
 
-                // Process any errors from threads
-                for (String error : threadErrors)
+            // Run the Threads
+            NucleusLogger.GENERAL.debug(">> Starting threads");
+            for (int i = 0; i < THREAD_SIZE; i++)
+            {
+                threads[i].start();
+            }
+            for (int i = 0; i < THREAD_SIZE; i++)
+            {
+                try
                 {
-                    if (error != null)
-                    {
-                        fail(error);
-                    }
+                    threads[i].join();
+                }
+                catch (InterruptedException e)
+                {
+                    fail(e.getMessage());
                 }
             }
-            finally
+            NucleusLogger.GENERAL.debug(">> Completed threads");
+
+            // Process any errors from threads and fail the test if any failed
+            for (String error : threadErrors)
             {
-                
+                if (error != null)
+                {
+                    fail(error);
+                }
             }
         }
         finally
