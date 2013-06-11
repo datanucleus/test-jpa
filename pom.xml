@@ -2,7 +2,7 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.datanucleus</groupId>
-    <version>3.2</version>
+    <version>3.3</version>
     <artifactId>datanucleus-test-jpa</artifactId>
     <name>DataNucleus Test for JPA</name>
     <description>DataNucleus Test for JPA</description>
@@ -14,9 +14,9 @@
             <version>[3.0, )</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.geronimo.specs</groupId>
-            <artifactId>geronimo-jpa_2.0_spec</artifactId>
-            <version>1.0</version>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>javax.persistence</artifactId>
+            <version>2.1.0</version>
         </dependency>
 
         <dependency>
@@ -27,7 +27,7 @@
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-api-jpa</artifactId>
-            <version>[3.1.99, )</version>
+            <version>[3.2.99, )</version>
         </dependency>
 
         <dependency>
@@ -109,7 +109,7 @@
             <plugin>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>datanucleus-maven-plugin</artifactId>
-                <version>3.2.0-m3</version>
+                <version>3.3.0-m1</version>
                 <configuration>
                     <api>JPA</api>
                     <persistenceUnitName>MyTest</persistenceUnitName>
