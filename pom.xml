@@ -2,7 +2,7 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.datanucleus</groupId>
-    <version>3.3</version>
+    <version>4.0</version>
     <artifactId>datanucleus-test-jpa</artifactId>
     <name>DataNucleus Test for JPA</name>
     <description>DataNucleus Test for JPA</description>
@@ -22,12 +22,12 @@
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-core</artifactId>
-            <version>[3.1.99, )</version>
+            <version>[3.9, )</version>
         </dependency>
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-api-jpa</artifactId>
-            <version>[3.2.99, )</version>
+            <version>[3.9, )</version>
         </dependency>
 
         <dependency>
@@ -45,7 +45,7 @@
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-rdbms</artifactId>
-            <version>[3.1.99, )</version>
+            <version>[3.9, )</version>
         </dependency>
 
         <!-- Change to the datastore driver required for your datastore -->
@@ -110,7 +110,7 @@
             <plugin>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>datanucleus-maven-plugin</artifactId>
-                <version>3.3.1</version>
+                <version>4.0.0-m1-SNAPSHOT</version>
                 <configuration>
                     <api>JPA</api>
                     <persistenceUnitName>MyTest</persistenceUnitName>
