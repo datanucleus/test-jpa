@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.datanucleus</groupId>
     <version>4.0</version>
@@ -8,11 +10,6 @@
     <description>DataNucleus Test for JPA</description>
 
     <dependencies>
-        <dependency>
-            <groupId>javax.jdo</groupId>
-            <artifactId>jdo-api</artifactId>
-            <version>[3.0, )</version>
-        </dependency>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>javax.persistence</artifactId>
@@ -57,41 +54,24 @@
     </dependencies>
 
     <build>
-        <resources>
-            <resource>
-                <filtering>true</filtering>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/persistence.xml</include>
-                    <include>**/orm.xml</include>
-                    <include>**/*.properties</include>
-                </includes>
-            </resource>
-            <resource>
-                <filtering>true</filtering>
-                <directory>${basedir}</directory>
-                <includes>
-                    <include>**/log4j.properties</include>
-                </includes>
-            </resource>
-        </resources>
-
         <plugins>
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>2.4.1</version>
+                <version>2.5</version>
                 <configuration>
                     <filesets>
                         <fileset>
                             <directory>${basedir}</directory>
                             <includes>
                                 <include>*.log</include>
-                                <include>testDB</include>
                                 <include>test.xls</include>
                                 <include>test.ods</include>
                                 <include>test.ooxml</include>
                                 <include>test.xml</include>
                             </includes>
+                        </fileset>
+                        <fileset>
+                            <directory>${basedir}/testDB</directory>
                         </fileset>
                     </filesets>
                 </configuration>
@@ -110,7 +90,7 @@
             <plugin>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>datanucleus-maven-plugin</artifactId>
-                <version>4.0.0-m1</version>
+                <version>4.0.0-m2</version>
                 <configuration>
                     <api>JPA</api>
                     <persistenceUnitName>MyTest</persistenceUnitName>
@@ -148,7 +128,7 @@
                     <systemProperties>
                         <systemProperty>
                             <key>log4j.configuration</key>
-                            <value>file:${basedir}/log4j.properties</value>
+                            <value>file:${basedir}/src/main/resources/log4j.properties</value>
                         </systemProperty>
                     </systemProperties>
                 </configuration>
