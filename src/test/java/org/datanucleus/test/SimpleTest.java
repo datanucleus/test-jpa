@@ -1,5 +1,6 @@
 package org.datanucleus.test;
 
+import java.util.*;
 import org.junit.*;
 import javax.persistence.*;
 
@@ -26,8 +27,8 @@ public class SimpleTest
         }
         catch (Throwable thr)
         {
-            NucleusLogger.GENERAL.error(">> Exception thrown persisting data", thr);
-            fail("Failed to persist data : " + thr.getMessage());
+            NucleusLogger.GENERAL.error(">> Exception in test", thr);
+            fail("Failed test : " + thr.getMessage());
         }
         finally 
         {

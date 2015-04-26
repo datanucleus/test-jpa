@@ -1,5 +1,6 @@
 package org.datanucleus.test;
 
+import java.util.*;
 import org.junit.*;
 import javax.persistence.*;
 
@@ -31,8 +32,8 @@ public class MultithreadTest
             }
             catch (Throwable thr)
             {
-                NucleusLogger.GENERAL.error("Exception persisting objects", thr);
-                fail("Exception persisting data : " + thr.getMessage());
+                NucleusLogger.GENERAL.error("Exception in test", thr);
+                fail("Failed test : " + thr.getMessage());
             }
             finally
             {
@@ -117,8 +118,8 @@ public class MultithreadTest
         }
         catch (Throwable thr)
         {
-            NucleusLogger.GENERAL.error("Exception performing test", thr);
-            return "Exception performing test : " + thr.getMessage();
+            NucleusLogger.GENERAL.error("Exception in test", thr);
+            return "Failed test : " + thr.getMessage();
         }
         finally
         {
