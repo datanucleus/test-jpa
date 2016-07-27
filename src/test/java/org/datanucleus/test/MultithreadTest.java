@@ -10,7 +10,8 @@ import org.datanucleus.util.NucleusLogger;
 
 public class MultithreadTest
 {
-    @Test
+    // Enable this if using this test
+//    @Test
     public void testMulti()
     {
         NucleusLogger.GENERAL.info(">> test START");
