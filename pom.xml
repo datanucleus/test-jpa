@@ -9,22 +9,46 @@
     <name>DataNucleus Test for JPA</name>
     <description>DataNucleus Test for JPA</description>
 
+    <properties>
+        <javax_persistence.ver>2.1.2</javax_persistence.ver>
+        <dn.core.min.ver>5.0.1</dn.core.min.ver>
+        <dn.core.max.ver>5.0.99</dn.core.max.ver>
+        <dn.api_jpa.min.ver>5.0.1</dn.api_jpa.min.ver>
+        <dn.api_jpa.max.ver>5.0.99</dn.api_jpa.max.ver>
+        <dn.datastore.min.ver>5.0.1</dn.datastore.min.ver>
+        <dn.datastore.max.ver>5.0.99</dn.datastore.max.ver>
+        <dn.maven.plugin.ver>5.0.0-release</dn.maven.plugin.ver>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>javax.persistence</artifactId>
-            <version>2.1.2</version>
+            <version>${javax_persistence.ver}</version>
         </dependency>
 
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-core</artifactId>
-            <version>[5.0.0-release, )</version>
+            <version>[${dn.core.min.ver}, ${dn.core.max.ver})</version>
         </dependency>
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-api-jpa</artifactId>
-            <version>[5.0.0-release, )</version>
+            <version>[${dn.api_jpa.min.ver}, ${dn.api_jpa.max.ver})</version>
+        </dependency>
+        <!-- Change to the datanucleus-{datastore} plugin required -->
+        <dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-rdbms</artifactId>
+            <version>[${dn.datastore.min.ver}, ${dn.datastore.max.ver})</version>
+        </dependency>
+
+        <!-- Change to the datastore driver required for your datastore -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.3.168</version>
         </dependency>
 
         <dependency>
@@ -36,20 +60,6 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.8</version>
-        </dependency>
-
-        <!-- Change to the datanucleus-{datastore} plugin required -->
-        <dependency>
-            <groupId>org.datanucleus</groupId>
-            <artifactId>datanucleus-rdbms</artifactId>
-            <version>[5.0.0-release, )</version>
-        </dependency>
-
-        <!-- Change to the datastore driver required for your datastore -->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.3.168</version>
         </dependency>
     </dependencies>
 
@@ -90,7 +100,7 @@
             <plugin>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>datanucleus-maven-plugin</artifactId>
-                <version>5.0.0-release</version>
+                <version>${dn.maven.plugin.ver}</version>
                 <configuration>
                     <api>JPA</api>
                     <persistenceUnitName>MyTest</persistenceUnitName>
