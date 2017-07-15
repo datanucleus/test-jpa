@@ -10,7 +10,7 @@
     <description>DataNucleus Test for JPA</description>
 
     <properties>
-        <javax_persistence.ver>2.1.2</javax_persistence.ver>
+        <javax_persistence.ver>2.2.0-release</javax_persistence.ver>
         <dn.core.min.ver>5.0.1</dn.core.min.ver>
         <dn.core.max.ver>5.1.99</dn.core.max.ver>
         <dn.api_jpa.min.ver>5.0.1</dn.api_jpa.min.ver>
