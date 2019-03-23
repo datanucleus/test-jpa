@@ -13,6 +13,7 @@
             <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:nucleus"/>
             <property name="javax.persistence.jdbc.user" value="sa"/>
             <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
 
             <property name="datanucleus.schema.autoCreateAll" value="true"/>
         </properties>
