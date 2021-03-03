@@ -17,7 +17,7 @@
         <dn.api_jpa.max.ver>5.2.99</dn.api_jpa.max.ver>
         <dn.datastore.min.ver>5.1.99</dn.datastore.min.ver>
         <dn.datastore.max.ver>5.2.99</dn.datastore.max.ver>
-        <dn.maven.plugin.ver>5.0.2</dn.maven.plugin.ver>
+        <dn.maven.plugin.ver>5.2.1</dn.maven.plugin.ver>
     </properties>
 
     <dependencies>
